@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LectureResponseDto {
 
+	private Long lectureId;
 	private String name; // 강의 제목
 
 
@@ -32,6 +33,7 @@ public class LectureResponseDto {
 
 
 	public LectureResponseDto(Lecture lecture) {
+		this.lectureId = lecture.getId();
 		this.name = lecture.getName();
 		this.schedule = lecture.getSchedule();
 		this.limitCount = lecture.getLimitCount();
