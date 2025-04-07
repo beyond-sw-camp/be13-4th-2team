@@ -1,5 +1,6 @@
 package com.bucams.bucams.lecture.domain.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -262,6 +263,7 @@ public class LectureServiceImpl implements LectureService {
 		registrationRepository.save(Registration.builder()
 												.lecture(lecture)
 												.member(student)
+												.registeredAt(LocalDateTime.now())
 												.build());
 
 
@@ -272,7 +274,7 @@ public class LectureServiceImpl implements LectureService {
 
 	/**
 	 * 시간표 문자열 두 개가 겹치는지 검사
-	 * 예: "수 2-5" 와 "수 4-6" → true
+	 * 예: "수 2-5, 목 7-9" 와 "수 4-6, 금 11-1" → true
 	 */
 	private boolean isScheduleConflict(String s1, String s2) {
 
