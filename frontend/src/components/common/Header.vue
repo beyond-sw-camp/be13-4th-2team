@@ -9,9 +9,26 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="#" class="nav-link px-2 text-secondary">수강 신청</a></li>
           <li><a href="#" class="nav-link px-2 text-white">내 정보</a></li>
-          <RouterLink :to="{name:'departments'}">
-          <li><a href="#" class="nav-link px-2 text-white">학과 전체 조회</a></li>
-        </RouterLink>
+          <li>
+            <RouterLink :to="{ name: 'departments' }" class="nav-link px-2 text-white">
+              학과 전체 조회
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink :to="{ name: 'lecture-create' }" class="nav-link px-2 text-white">
+            강의 생성
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink :to="{ name: 'lecture-manage' }" class="nav-link px-2 text-white">
+            강의 관리
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink :to="{ name: 'lecture-list' }" class="nav-link px-2 text-white">
+            강의 리스트
+            </RouterLink>
+          </li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">

@@ -18,6 +18,10 @@ const BaseLayout = () => import('@/views/BaseLayout.vue');
 
 const Departments = () => import('@/views/ShowDepartment.vue');
 
+const LectureList = () => import('@/views/Lecture/LectureList.vue');
+const LectureCreate = () => import('@/views/Lecture/LectureCreate.vue');
+const LectureItem = () => import('@/views/Lecture/LectureItem.vue');
+
 const router = createRouter({
   // 라우터가 사용할 라우팅 모드 지정 (HTML 5 모드)
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -47,6 +51,22 @@ const router = createRouter({
           name: 'departments', 
           component: Departments 
         },
+        {
+          path: 'lectures/create',
+          name: 'lecture-create',
+          component: LectureCreate
+        },
+        {
+          path: 'lectures/manage',
+          name: 'lecture-manage',
+          component: LectureItem
+        },
+        {
+          path: 'lectures/list',
+          name: 'lecture-list',
+          component: LectureList
+        },
+
       ]
     }]
   })
