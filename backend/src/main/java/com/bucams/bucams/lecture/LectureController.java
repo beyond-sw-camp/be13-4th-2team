@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,7 @@ import com.bucams.bucams.lecture.domain.dto.RegisterLectureResponseDto;
 import com.bucams.bucams.lecture.domain.entity.SearchOption;
 import com.bucams.bucams.lecture.domain.service.LectureService;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -46,7 +48,7 @@ public class LectureController {
 
 	// 강의 수정
 	@Operation(summary = "강의 수정", description = "강의 수정")
-	@PostMapping("/")
+	@PostMapping("/update")
 	public ResponseEntity<LectureResponseDto> updateLecture(@RequestBody LectureUpdateRequestDto lectureRequestDto ){
 
 
