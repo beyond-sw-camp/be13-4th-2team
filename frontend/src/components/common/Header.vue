@@ -36,7 +36,12 @@
         </form>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
+          <template v-if="authStore.isLoggedIn">
+            <button @click="handleLogout" class="btn btn-outline-light me-2">Logout</button>
+          </template>
+          <template v-else>
+            <RouterLink :to="{ name: 'login' }" class="btn btn-outline-light me-2">Login</RouterLink>
+          </template>
           <button type="button" class="btn btn-warning">Sign-up</button>
         </div>
       </div>
@@ -45,7 +50,12 @@
 </template>
 
 <script setup>
+  import { useAuthStore } from '../../stores/auth'
+  const authStore = useAuthStore();
 
+  const handleLogout = () => {
+  authStore.logout()
+  }
 </script>
 
 <style lang="scss" scoped>

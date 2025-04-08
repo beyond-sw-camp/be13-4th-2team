@@ -5,10 +5,14 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "App",
-};
+<script setup>
+  import { useAuthStore } from './stores/auth';
+// export default {
+//   name: "App",
+// };
+  const authStore = useAuthStore();
+
+  authStore.checkLogin();
 </script>
 
 <style>

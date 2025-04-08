@@ -1,4 +1,5 @@
 
+import Login from '@/views/auth/Login.vue';
 import { onMounted } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -40,6 +41,7 @@ const router = createRouter({
   // 중첩된 라우트
   // RouterView에 의해서 렌더링된 컴포넌트가 다시 RouterView를 이용해 자식 라우트에 매칭된 컴포넌트를 렌더링한다. 
   routes: [
+    { path: '/login', name: 'login', component: Login },
     {
       path: '/',
       name: 'base',
