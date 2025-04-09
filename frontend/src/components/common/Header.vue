@@ -44,7 +44,7 @@
             </RouterLink>
           </li>
           <li>
-            <RouterLink :to="{ name: 'MyRegistration', params: { memberId } }">나의 수강신청 조회</RouterLink>
+            <RouterLink :to="{ name: 'MyRegistration', params: { memberId } }" class="nav-link px-3 text-white">나의 수강신청 조회</RouterLink>
           </li>
           <li>
             <RouterLink :to="{ name: 'DurationOfRegistration' }" class="nav-link px-3 text-white">
