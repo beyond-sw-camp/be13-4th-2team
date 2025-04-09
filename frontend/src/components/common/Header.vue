@@ -44,6 +44,9 @@
             </RouterLink>
           </li>
           <li>
+            <RouterLink :to="{ name: 'MyRegistration', params: { memberId } }" class="nav-link px-3 text-white">나의 수강신청 조회</RouterLink>
+          </li>
+          <li>
             <RouterLink :to="{ name: 'DurationOfRegistration' }" class="nav-link px-3 text-white">
               수강 신청 기간 관리
             </RouterLink>
@@ -104,6 +107,8 @@ import axios from '@/api/axios'
 import { useAuthStore } from '../../stores/auth'
 
 const authStore = useAuthStore()
+
+const memberId = localStorage.getItem('memberId')
 
 const handleLogout = () => {
   authStore.logout()
