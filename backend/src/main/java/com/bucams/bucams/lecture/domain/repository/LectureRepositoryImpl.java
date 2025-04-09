@@ -48,6 +48,7 @@ public class LectureRepositoryImpl implements LectureRepositoryCustom {
 		List<LectureResponseDto> content = queryFactory
 
 			.select(Projections.constructor(LectureResponseDto.class,
+				lecture.id,
 				lecture.name,
 				member.phone,
 				member.email,

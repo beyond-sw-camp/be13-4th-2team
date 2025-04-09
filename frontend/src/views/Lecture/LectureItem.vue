@@ -4,43 +4,54 @@
 
     <div v-if="lectures.length > 0" class="lecture-list">
       <div v-for="lecture in lectures" :key="lecture.lectureId" class="lecture-card">
-        <h3>{{ lecture.name }}</h3>
-        <p><strong>시간:</strong> {{ lecture.schedule }}</p>
-        <p><strong>학점:</strong> {{ lecture.credit }} | <strong>정원:</strong> {{ lecture.limitCount }}명</p>
-        <div class="button-group">
-          <button class="edit-btn" @click="editLecture(lecture)">수정</button>
-          <button class="delete-btn" @click="deleteLecture(lecture.lectureId)">삭제</button>
+
+        <!-- 수정 중인 강의 -->
+        <div v-if="editingLectureId === lecture.lectureId">
+          <h3>강의 수정</h3>
+          <form @submit.prevent="submitEdit(lecture.lectureId)">
+            <!-- 강의명 -->
+            <label>강의명</label>
+            <input v-model="editForm.name" placeholder="강의명" />
+            <small v-if="errors.name" class="error">{{ errors.name }}</small>
+
+            <!-- 학점 -->
+            <label>학점</label>
+            <input v-model.number="editForm.credit" type="number" placeholder="학점" />
+            <small v-if="errors.credit" class="error">{{ errors.credit }}</small>
+
+            <!-- 정원 -->
+            <label>정원</label>
+            <input v-model.number="editForm.limitCount" type="number" placeholder="정원" />
+            <small v-if="errors.limitCount" class="error">{{ errors.limitCount }}</small>
+
+            <!-- 강의 시간 -->
+            <label>강의 시간</label>
+            <input v-model="editForm.schedule" placeholder="예: 수 1-3, 목 2-4" />
+            <small v-if="errors.schedule" class="error">{{ errors.schedule }}</small>
+
+            <label>강의 유형</label>
+            <select v-model="editForm.lectureType">
+              <option value="MAJOR">전공</option>
+              <option value="GENERAL">교양</option>
+            </select>
+
+            <button type="submit" class="save-btn">저장</button>
+          </form>
+        </div>
+
+        <div v-else>
+          <h3>{{ lecture.name }}</h3>
+          <p><strong>시간:</strong> {{ lecture.schedule }}</p>
+          <p><strong>학점:</strong> {{ lecture.credit }} | <strong>정원:</strong> {{ lecture.limitCount }}명</p>
+          <div class="button-group">
+            <button class="edit-btn" @click="editLecture(lecture)">수정</button>
+            <button class="delete-btn" @click="deleteLecture(lecture.lectureId)">삭제</button>
+          </div>
         </div>
       </div>
     </div>
 
     <p v-else class="no-lecture-msg">등록된 강의가 없습니다.</p>
-
-    <!-- 수정 폼 -->
-    <div v-if="editingLecture" class="edit-form">
-      <h3>강의 수정</h3>
-      <form @submit.prevent="submitEdit">
-        <label>강의명</label>
-        <input v-model="editingLecture.name" placeholder="강의명" />
-
-        <label>학점</label>
-        <input v-model.number="editingLecture.credit" type="number" placeholder="학점" />
-
-        <label>정원</label>
-        <input v-model.number="editingLecture.limitCount" type="number" placeholder="정원" />
-
-        <label>강의 시간</label>
-        <input v-model="editingLecture.schedule" placeholder="예: 수 1-3, 목 2-4" />
-
-        <label>강의 유형</label>
-        <select v-model="editingLecture.lectureType">
-          <option value="MAJOR">전공</option>
-          <option value="GENERAL">교양</option>
-        </select>
-
-        <button type="submit" class="save-btn">저장</button>
-      </form>
-    </div>
   </div>
 </template>
 
@@ -51,13 +62,38 @@ export default {
   data() {
     return {
       lectures: [],
-      editingLecture: null,
+      editingLectureId: null,
+      editForm: {
+        name: '',
+        credit: 0,
+        limitCount: 0,
+        schedule: '',
+        lectureType: 'MAJOR',
+      },
+      errors: {},
     };
   },
   mounted() {
     this.fetchMyLectures();
   },
   methods: {
+
+    validateEditForm() {
+      this.errors = {};
+      if (!this.editForm.name.trim()) {
+        this.errors.name = '강의명을 입력하세요.';
+      }
+      if (!this.editForm.schedule.trim()) {
+        this.errors.schedule = '강의 시간을 입력하세요.';
+      }
+      if (this.editForm.credit < 1) {
+        this.errors.credit = '학점은 1 이상이어야 합니다.';
+      }
+      if (this.editForm.limitCount < 15) {
+        this.errors.limitCount = '정원은 15명 이상이어야 합니다.';
+      }
+      return Object.keys(this.errors).length === 0;
+    },
     async fetchMyLectures() {
       try {
         const memberId = localStorage.getItem('memberId');
@@ -77,26 +113,35 @@ export default {
     },
 
     editLecture(lecture) {
-      this.editingLecture = { ...lecture };
+      this.editingLectureId = lecture.lectureId;
+      this.editForm = {
+        name: lecture.name,
+        credit: lecture.credit,
+        limitCount: lecture.limitCount,
+        schedule: lecture.schedule,
+        lectureType: lecture.lectureType,
+      };
     },
 
-    async submitEdit() {
+    async submitEdit(lectureId) {
+
+      if (!this.validateEditForm()) return;
       try {
         const memberId = localStorage.getItem('memberId');
         const payload = {
           professorId: Number(memberId),
-          lectureId: this.editingLecture.lectureId,
-          lectureName: this.editingLecture.name,
-          credit: this.editingLecture.credit,
-          limitCount: this.editingLecture.limitCount,
-          schedule: this.editingLecture.schedule.split(','),
-          lectureType: this.editingLecture.lectureType,
+          lectureId: lectureId,
+          lectureName: this.editForm.name,
+          credit: this.editForm.credit,
+          limitCount: this.editForm.limitCount,
+          schedule: this.editForm.schedule.split(','),
+          lectureType: this.editForm.lectureType,
         };
-        console.log('수정할 강의 정보:', payload);
+
         await api.post('/lectures/update', payload);
         alert('강의가 수정되었습니다.');
+        this.editingLectureId = null;
         this.fetchMyLectures();
-        this.editingLecture = null;
       } catch (err) {
         console.error('강의 수정 실패:', err);
         alert(err.response?.data?.message || '수정 실패');
@@ -104,10 +149,8 @@ export default {
     },
 
     async deleteLecture(lectureId) {
-
-      const confirmDelete = confirm("정말로 이 강의를 삭제하시겠습니까?");
+      const confirmDelete = confirm('정말로 이 강의를 삭제하시겠습니까?');
       if (!confirmDelete) return;
-
 
       try {
         const memberId = localStorage.getItem('memberId');
@@ -127,130 +170,143 @@ export default {
 
 <style scoped>
 .lecture-container {
-  max-width: 850px;
+  max-width: 900px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
   font-family: 'Segoe UI', sans-serif;
-  color: #222;
 }
 
 .lecture-container h2 {
+  font-size: 1.6rem;
+  color: #343a40;
+  font-weight: 600;
   margin-bottom: 1.5rem;
-  color: #1e88e5;
-  font-size: 1.8rem;
+  text-align: center;
 }
 
 .lecture-list {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.25rem;
 }
 
 .lecture-card {
-  background-color: #f0f2f5;
-  border-left: 5px solid #1e88e5;
-  border-radius: 8px;
-  padding: 1rem 1.5rem;
+  border: 1px solid #e0e0e0;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
+  background-color: #f9f9f9;
   transition: background-color 0.2s;
 }
 
 .lecture-card:hover {
-  background-color: #e3eaf4;
+  background-color: #f1f5ff;
 }
 
 .lecture-card h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.2rem;
-  color: #1e88e5;
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  color: #0d6efd;
+  font-weight: 600;
 }
 
 .lecture-card p {
-  margin: 0.2rem 0;
+  margin: 0.25rem 0;
   font-size: 0.95rem;
+  color: #333;
 }
 
 .button-group {
-  margin-top: 0.8rem;
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .edit-btn,
 .delete-btn,
 .save-btn {
-  padding: 0.45rem 1rem;
-  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
+  border-radius: 0.5rem;
   font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .edit-btn {
-  background-color: #1e88e5;
+  background-color: #0d6efd;
   color: white;
 }
 
 .edit-btn:hover {
-  background-color: #1565c0;
+  background-color: #0a58ca;
 }
 
 .delete-btn {
-  background-color: #e53935;
+  background-color: #dc3545;
   color: white;
 }
 
 .delete-btn:hover {
-  background-color: #c62828;
+  background-color: #b02a37;
 }
 
 .save-btn {
-  background-color: #43a047;
+  background-color: #198754;
   color: white;
-  margin-top: 1rem;
 }
 
 .save-btn:hover {
-  background-color: #2e7d32;
+  background-color: #146c43;
 }
 
-.edit-form {
-  margin-top: 2.5rem;
-  background-color: #fafafa;
-  border: 1px solid #ddd;
-  padding: 1.5rem;
-  border-radius: 8px;
+form {
+  margin-top: 1rem;
 }
 
-.edit-form h3 {
-  color: #1e88e5;
-  margin-bottom: 1rem;
-}
-
-.edit-form label {
-  display: block;
-  margin: 0.6rem 0 0.3rem;
+label {
   font-weight: 600;
-  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+  display: block;
+  color: #495057;
 }
 
-.edit-form input,
-.edit-form select {
+input,
+select {
   width: 100%;
   padding: 0.5rem;
-  margin-bottom: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  margin-bottom: 0.75rem;
   font-size: 0.95rem;
   box-sizing: border-box;
 }
 
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+
 .no-lecture-msg {
-  color: #555;
-  font-style: italic;
-  margin-top: 1rem;
   text-align: center;
+  font-size: 1rem;
+  color: #6c757d;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: -0.4rem;
+  margin-bottom: 0.6rem;
+  display: block;
 }
 </style>

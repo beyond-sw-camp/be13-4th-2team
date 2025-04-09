@@ -1,6 +1,7 @@
 package com.bucams.bucams.lecture.domain.service;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -205,68 +206,68 @@ public class LectureServiceImpl implements LectureService {
 	@Override
 	@Transactional
 	public RegisterLectureResponseDto registerLecture(Long studentId, Long lectureId) {
+		// 1. 학생 존재 확인
+		Member student = memberRepository.findById(studentId)
+			.orElseThrow(() -> new IllegalArgumentException("해당 사용자가 존재하지 않습니다."));
 
-		// 1. 학생이 존재하는지 검증
-		Member student = memberRepository.findById(studentId).orElseThrow(
-			() -> new IllegalArgumentException("해당 사용자가 존재하지 않습니다.")
-		);
-
-		// 2. 학생인지 검증
-		if(student.getRole() != Role.STUDENT){
+		// 2. 역할 확인
+		if (student.getRole() != Role.STUDENT) {
 			throw new IllegalArgumentException("해당 사용자는 학생이 아닙니다.");
 		}
 
-		// 3. 강의가 존재하는지 검증
-		Lecture lecture = lectureRepository.findById(lectureId).orElseThrow(
-			() -> new IllegalArgumentException("해당 강의가 존재하지 않습니다.")
-		);
+		// 3. 강의 존재 확인
+		Lecture lecture = lectureRepository.findById(lectureId)
+			.orElseThrow(() -> new IllegalArgumentException("해당 강의가 존재하지 않습니다."));
 
-		/// 4.  해당 학생 시간표의 시간과 겹치지 않는 것 검증
-		// 1. 일단 이 학생이 이 강의를 신청했는지 확인
-		// 2. 학생의 시간표에서 겹치지 않는지 확인
-
+		// 4. 시간표 중복 체크 (방어 로직 포함)
 		List<Registration> registrationList = registrationRepository.findByMemberId(studentId);
-		String[] wantSchedule = lecture.getSchedule().split(","); // 신청하려는 강의 시간표
+		String[] wantSchedule = Arrays.stream(lecture.getSchedule().split(","))
+			.map(String::trim)
+			.filter(s -> !s.isEmpty())
+			.toArray(String[]::new);
 
 		for (Registration registration : registrationList) {
-			String[] existSchedule = registration.getLecture().getSchedule().split(",");
+			String[] existSchedule = Arrays.stream(registration.getLecture().getSchedule().split(","))
+				.map(String::trim)
+				.filter(s -> !s.isEmpty())
+				.toArray(String[]::new);
 
 			for (String exist : existSchedule) {
 				for (String want : wantSchedule) {
-					if (isScheduleConflict(exist.trim(), want.trim())) {
+					if (isScheduleConflict(exist, want)) {
 						throw new IllegalArgumentException("이미 해당 시간에 수강 중인 강의가 있어 수강 신청이 불가능합니다.");
 					}
 				}
 			}
 		}
 
-		// 5. 강의의 인원이 full 이 아닌지 검증
-		if( lecture.getCurrCount() >= lecture.getLimitCount() ){
+		// 5. 수강 인원 초과 확인
+		if (lecture.getCurrCount() >= lecture.getLimitCount()) {
 			throw new IllegalArgumentException("해당 강의는 수강신청이 마감되었습니다.");
 		}
 
-
-		// 6. 수강 신청 시 21학점 초과하면 신청 불가
-		if(student.getCurrentCredits() + lecture.getCredit() > 21){
+		// 6. 학점 초과 확인
+		if (student.getCurrentCredits() + lecture.getCredit() > 21) {
 			throw new IllegalArgumentException("수강신청 학점이 21학점을 초과했습니다.");
 		}
 
+		// 7. 교수 및 학과 정보 확인
+		if (lecture.getMember() == null) {
+			throw new IllegalStateException("해당 강의에 등록된 교수 정보가 없습니다.");
+		}
+		if (lecture.getMember().getDepartment() == null) {
+			throw new IllegalStateException("교수님에게 학과 정보가 등록되어 있지 않습니다.");
+		}
 
-		// 7. 수강신청 고고
-		// 7-1 ) 해당 강의 현재 수강인원 증가
+		// 8. 수강 신청 처리
 		lecture.addCurrCount();
-
-		// 7-2 ) 학생의 현재 학점 증가
 		student.addCurrentCredits(lecture.getCredit());
 
-		// 7-3 ) 학생의 수강신청 내역에 해당 강의 추가
 		registrationRepository.save(Registration.builder()
-												.lecture(lecture)
-												.member(student)
-												.registeredAt(LocalDateTime.now())
-												.build());
-
-
+			.lecture(lecture)
+			.member(student)
+			.registeredAt(LocalDateTime.now())
+			.build());
 
 		return new RegisterLectureResponseDto(lecture, student);
 	}
@@ -277,23 +278,31 @@ public class LectureServiceImpl implements LectureService {
 	 * 예: "수 2-5, 목 7-9" 와 "수 4-6, 금 11-1" → true
 	 */
 	private boolean isScheduleConflict(String s1, String s2) {
+		try {
+			if (s1 == null || s2 == null || s1.trim().isEmpty() || s2.trim().isEmpty()) {
+				return false; // 공백 또는 null이면 겹치지 않은 것으로 처리
+			}
 
-		String day1 = s1.substring(0, 1); // 요일
-		String[] times1 = s1.substring(2).split("-"); // 시간대1
+			String day1 = s1.substring(0, 1); // 예: "수"
+			String[] times1 = s1.substring(2).split("-");
 
-		int start1 = Integer.parseInt(times1[0]); // 시작 시간
-		int end1 = Integer.parseInt(times1[1]); // 끝 시간
+			String day2 = s2.substring(0, 1); // 예: "수"
+			String[] times2 = s2.substring(2).split("-");
 
-		String day2 = s2.substring(0, 1);
-		String[] times2 = s2.substring(2).split("-");
-		int start2 = Integer.parseInt(times2[0]);
-		int end2 = Integer.parseInt(times2[1]);
+			int start1 = Integer.parseInt(times1[0]);
+			int end1 = Integer.parseInt(times1[1]);
+			int start2 = Integer.parseInt(times2[0]);
+			int end2 = Integer.parseInt(times2[1]);
 
-		if (!day1.equals(day2)) return false; // 요일 다르면 겹치지 않음
+			if (!day1.equals(day2)) return false;
 
-		return start1 <= end2 && start2 <= end1; // 시간 겹침 여부
+			return start1 <= end2 && start2 <= end1;
+
+		} catch (Exception e) {
+			log.error("시간표 파싱 중 오류 발생: s1={}, s2={}, message={}", s1, s2, e.getMessage());
+			return false; // 오류 나면 겹치지 않은 것으로 처리
+		}
 	}
-
 
 }
 

@@ -9,7 +9,11 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-3 text-secondary">수강 신청</a></li>
+          <li>
+            <RouterLink :to=" { name: 'lecture-list' }" class="nav-link px-3 text-white">
+              수강 신청
+            </RouterLink>
+          </li>
           <li><a href="#" class="nav-link px-3 text-white">내 정보</a></li>
           <li>
             <RouterLink :to="{ name: 'departments' }" class="nav-link px-3 text-white">
@@ -24,11 +28,6 @@
           <li>
             <RouterLink :to="{ name: 'lecture-manage' }" class="nav-link px-3 text-white">
               강의 관리
-            </RouterLink>
-          </li>
-          <li>
-            <RouterLink :to="{ name: 'lecture-list' }" class="nav-link px-3 text-white">
-              강의 리스트
             </RouterLink>
           </li>
           <li>
