@@ -6,8 +6,7 @@ import com.bucams.bucams.member.domain.Role;
 import com.bucams.bucams.member.domain.Status;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -34,7 +33,7 @@ public class MemberJoinDto {
 
     private Status status;
 
-    @NotBlank(message = "역할을 입력해주세요.")
+    @NotNull(message = "역할을 입력해주세요.")
     private Role role;
 
     private Long departmentId;
