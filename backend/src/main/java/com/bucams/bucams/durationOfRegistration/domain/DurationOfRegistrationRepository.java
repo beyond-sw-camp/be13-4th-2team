@@ -5,6 +5,8 @@ import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @RequiredArgsConstructor
 public class DurationOfRegistrationRepository {
@@ -28,5 +30,10 @@ public class DurationOfRegistrationRepository {
 
     public void deleteDor(DurationOfRegistration durationOfRegistration) {
         em.remove(durationOfRegistration);
+    }
+
+    public List<DurationOfRegistration> findAll(){
+        return em.createQuery("select d " +
+                "from DurationOfRegistration d ", DurationOfRegistration.class).getResultList();
     }
 }

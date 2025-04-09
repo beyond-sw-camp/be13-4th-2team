@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -21,6 +23,12 @@ public class DurationOfRegistrationService {
     }
 
     public Long newDor(RequestDorDto requestDorDto) {
+
+        //이미 수강신청 데이터가 있으면 오류 발생
+        List<DurationOfRegistration> all = durationOfRegistrationRepository.findAll();
+        if(all.size() > 0){
+            throw new RuntimeException("이미 수강신청 기간이 존재합니다.");
+        }
 
         DurationOfRegistration dor = requestDorDto.toDor();
 

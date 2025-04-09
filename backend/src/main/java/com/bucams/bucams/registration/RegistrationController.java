@@ -62,9 +62,9 @@ public class RegistrationController {
 //    }
 
     // 수강신청 취소
-    @DeleteMapping("/{lecture-id}")
-    public ResponseEntity<Void> deleteRegistration(@PathVariable("lecture-id") Long lectureId) {
-        registrationService.deleteRegistration(lectureId);
+    @DeleteMapping("/{registration-id}")
+    public ResponseEntity<Void> deleteRegistration(@PathVariable("registration-id") Long registrationId) {
+        registrationService.deleteRegistration(registrationId);
         return ResponseEntity.ok().build();
     }
 }

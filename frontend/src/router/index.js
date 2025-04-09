@@ -5,6 +5,7 @@ import MyInfoPage from '@/views/member/MyInfoPage.vue';
 import { onMounted } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router'
 
+
 // import AuthLayout from '@/layout/AuthLayout.vue'
 // import BaseLayout from '@/layout/BaseLayout.vue'
 // import Login from '@/views/auth/Login.vue'
@@ -19,11 +20,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const BaseLayout = () => import('@/views/BaseLayout.vue');
 
-const Departments = () => import('@/views/ShowDepartment.vue');
+const Departments = () => import('@/views/department/ShowDepartment.vue');
 
 const LectureList = () => import('@/views/Lecture/LectureList.vue');
 const LectureCreate = () => import('@/views/Lecture/LectureCreate.vue');
 const LectureItem = () => import('@/views/Lecture/LectureItem.vue');
+
+const DurationOfRegistration = () => import('@/views/DurationOfRegistration/DurationOfRegistration.vue')
 
 const router = createRouter({
   // 라우터가 사용할 라우팅 모드 지정 (HTML 5 모드)
@@ -79,6 +82,11 @@ const router = createRouter({
           path: 'members/admin',
           name: 'adminPage',
           component: AdminPage
+        },
+        {
+          path: 'DurationOfRegistration',
+          name: 'DurationOfRegistration',
+          component: DurationOfRegistration
         },
 
       ]
