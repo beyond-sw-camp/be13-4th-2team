@@ -103,18 +103,12 @@ public class RegistrationService {
 
     // 삭제
     @Transactional
-    public void deleteRegistration(Long lectureId) {
-        Optional<Registration> deleteRegistration = registrationRepository.findByLectureId(lectureId);
-        if(deleteRegistration.isPresent()){
-//            Registration registration = deleteRegistration.get();
-//            if (registration.getLecture() == LectureService.getLecture()) {
-                registrationRepository.delete(deleteRegistration.get());
-//            } else {
-//                throw new RuntimeException("본인의 수강신청 내역만 삭제할 수 있습니다.");
-//            }
-
+    public void deleteRegistration(Long registrationId) {
+        Registration deleteRegistration = registrationRepository.findById(registrationId);
+        if(deleteRegistration != null) {
+            registrationRepository.delete(deleteRegistration);
         } else {
-            log.info("Registration not found: {}", lectureId);
+            log.info("Registration not found: {}", registrationId);
         }
 
     }
