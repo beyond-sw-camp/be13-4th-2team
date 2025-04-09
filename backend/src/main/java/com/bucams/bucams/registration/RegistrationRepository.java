@@ -39,10 +39,12 @@ public class RegistrationRepository {
         em.remove(findRegistration);
     }
 
-    public Optional<Registration> findById(Long registrationId) {
-        return Optional.ofNullable(em.find(Registration.class, registrationId));
+    public Registration findById(Long registrationId) {
+        return em.find(Registration.class, registrationId);
     }
-
+//    public Optional<Registration> findById(Long registrationId) {
+//        return Optional.ofNullable(em.find(Registration.class, registrationId));
+//    }
 
 
     // 전체 수강신청 내역 조회 ver.1
@@ -56,9 +58,7 @@ public class RegistrationRepository {
 //    }
 
 
-    public Optional<Registration> findByLectureId(Long lectureId) {
-        return  Optional.ofNullable(em.find(Registration.class, lectureId));
-    }
+
 
 
     public List<RegistrationRequestDto> findAllRegistrations() {
