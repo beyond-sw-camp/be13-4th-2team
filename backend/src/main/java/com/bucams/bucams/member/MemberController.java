@@ -4,6 +4,7 @@ import com.bucams.bucams.member.domain.Member;
 import com.bucams.bucams.member.dto.MemberJoinDto;
 import com.bucams.bucams.member.dto.MemberLoginDto;
 import com.bucams.bucams.member.dto.MemberMyInfoDto;
+import com.bucams.bucams.member.dto.MemberResponseDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -54,10 +55,24 @@ public class MemberController {
     }
 
     @GetMapping("/show-all")
-    public ResponseEntity<List<Member>> showAll() {
+    public ResponseEntity<List<MemberResponseDto>> showAll() {
         List<Member> members = memberRepository.findAll();
 
-        return ResponseEntity.ok(members);
+        List<MemberResponseDto> memberDtos = members.stream()
+                .map(member -> new MemberResponseDto(
+                        member.getId(),
+                        member.getName(),
+                        member.getNo() != null ? member.getNo() : "",
+                        member.getEmail(),
+                        member.getPhone(),
+                        member.getStatus(),
+                        member.getRole(),
+                        member.getDepartment() != null ? member.getDepartment().getName() : "",
+                        member.getCurrentCredits()
+                ))
+                .toList();
+
+        return ResponseEntity.ok(memberDtos);
     }
 
 
