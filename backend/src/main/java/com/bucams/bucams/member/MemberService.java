@@ -26,8 +26,11 @@ public class MemberService {
     @Transactional
     public void join(MemberJoinDto memberJoinDto) {
         // 학과 검색
-        Department department = departmentRepository.findById(memberJoinDto.getDepartmentId())
-                .orElseThrow(() -> new IllegalArgumentException("해당 학과가 존재하지 않습니다."));
+        Department department = null;
+        if (memberJoinDto.getDepartmentId() != null) {
+            department = departmentRepository.findById(memberJoinDto.getDepartmentId())
+                    .orElse(null);
+        }
 
         // 중복되는 이메일이 있는지 확인
         validateDuplicateEmail(memberJoinDto.getEmail());
