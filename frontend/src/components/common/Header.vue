@@ -8,7 +8,19 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="#" class="nav-link px-2 text-secondary">수강 신청</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">내 정보</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle px-2 text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              내 정보
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <RouterLink :to="{ name: 'myInfo' }" class="dropdown-item">내 정보 보기</RouterLink>
+              </li>
+              <li v-if="authStore.memberInfo.role === 'ADMIN'">
+                <RouterLink :to="{ name: 'adminPage' }" class="dropdown-item text-danger fw-bold">관리자 페이지</RouterLink>
+              </li>
+            </ul>
+          </li>
           <li>
             <RouterLink :to="{ name: 'departments' }" class="nav-link px-2 text-white">
               학과 전체 조회
@@ -50,7 +62,8 @@
 </template>
 
 <script setup>
-  import { useAuthStore } from '../../stores/auth'
+  import { RouterLink } from 'vue-router';
+import { useAuthStore } from '../../stores/auth'
   const authStore = useAuthStore();
 
   const handleLogout = () => {

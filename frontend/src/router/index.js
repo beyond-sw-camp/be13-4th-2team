@@ -1,5 +1,7 @@
 
 import Login from '@/views/auth/Login.vue';
+import AdminPage from '@/views/member/AdminPage.vue';
+import MyInfoPage from '@/views/member/MyInfoPage.vue';
 import { onMounted } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -67,6 +69,16 @@ const router = createRouter({
           path: 'lectures/list',
           name: 'lecture-list',
           component: LectureList
+        },
+        {
+          path: 'members/my-info',
+          name: 'myInfo',
+          component: MyInfoPage
+        },
+        {
+          path: 'members/admin',
+          name: 'adminPage',
+          component: AdminPage
         },
 
       ]
