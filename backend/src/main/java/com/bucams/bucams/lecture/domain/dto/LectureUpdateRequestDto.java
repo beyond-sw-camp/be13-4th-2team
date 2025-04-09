@@ -22,7 +22,7 @@ public class LectureUpdateRequestDto {
 	private String lectureName; // 강의 제목
 
 	@NotBlank(message="강의 시간은 필수 작성 항목입니다.")
-	private String[] schedule; // 강의 시간
+	private String schedule; // 강의 시간
 
 	@NotNull
 	@Min(value = 15, message = "수강 정원은 15 이상이어야 합니다.")

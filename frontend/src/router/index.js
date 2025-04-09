@@ -26,6 +26,9 @@ const LectureList = () => import('@/views/Lecture/LectureList.vue');
 const LectureCreate = () => import('@/views/Lecture/LectureCreate.vue');
 const LectureItem = () => import('@/views/Lecture/LectureItem.vue');
 
+const Registrations = () => import('@/views/Registration/Registration.vue');
+const MyRegistration = () => import('@/views/Registration/MyRegistration.vue');
+
 const DurationOfRegistration = () => import('@/views/DurationOfRegistration/DurationOfRegistration.vue')
 
 const router = createRouter({
@@ -87,6 +90,14 @@ const router = createRouter({
           path: 'DurationOfRegistration',
           name: 'DurationOfRegistration',
           component: DurationOfRegistration
+        },
+        { path: 'registration',
+          name: 'registration',
+          component: Registrations
+        },
+        { path: 'registration/:memberId',
+          name: 'MyRegistration',
+          component: MyRegistration
         },
 
       ]

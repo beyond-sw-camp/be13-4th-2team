@@ -134,7 +134,7 @@ export default {
           lectureName: this.editForm.name,
           credit: this.editForm.credit,
           limitCount: this.editForm.limitCount,
-          schedule: this.editForm.schedule.split(','),
+          schedule: this.editForm.schedule.trim(),
           lectureType: this.editForm.lectureType,
         };
 
