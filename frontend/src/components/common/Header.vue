@@ -28,7 +28,6 @@
               수강 신청
             </RouterLink>
           </li>
-          <li><a href="#" class="nav-link px-3 text-white">내 정보</a></li>
           <li>
             <RouterLink :to="{ name: 'departments' }" class="nav-link px-3 text-white">
               학과 전체 조회
