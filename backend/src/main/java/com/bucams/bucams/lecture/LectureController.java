@@ -3,6 +3,7 @@ package com.bucams.bucams.lecture;
 import java.util.List;
 
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -39,7 +40,7 @@ public class LectureController {
 	@Operation(summary = "강의 등록", description = "강의 등록 ")
 	@PostMapping
 	public ResponseEntity<LectureResponseDto> createLecture(
-		@RequestBody LectureCreateRequestDto lectureRequestDto) {
+		@RequestBody @Valid LectureCreateRequestDto lectureRequestDto) {
 
 
 		LectureResponseDto lectureResponseDto = lectureService.createLecture( lectureRequestDto);
@@ -49,7 +50,7 @@ public class LectureController {
 	// 강의 수정
 	@Operation(summary = "강의 수정", description = "강의 수정")
 	@PostMapping("/update")
-	public ResponseEntity<LectureResponseDto> updateLecture(@RequestBody LectureUpdateRequestDto lectureRequestDto ){
+	public ResponseEntity<LectureResponseDto> updateLecture(@RequestBody @Valid LectureUpdateRequestDto lectureRequestDto ){
 
 
 		LectureResponseDto lectureResponseDto = lectureService.updateLecture(lectureRequestDto);
