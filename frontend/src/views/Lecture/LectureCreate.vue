@@ -81,7 +81,7 @@ export default {
         lectureName: this.lectureName,
         credit: this.credit,
         limitCount: this.limitCount,
-        schedule: this.scheduleInput.split(',').map(str => str.trim()),
+        schedule: this.scheduleInput.trim(),
         lectureType: this.lectureType,
       };
 
