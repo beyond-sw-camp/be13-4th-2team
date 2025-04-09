@@ -43,7 +43,7 @@
               강의 관리
             </RouterLink>
           </li>
-          <li>
+          <li v-if="memberId">
             <RouterLink :to="{ name: 'MyRegistration', params: { memberId } }" class="nav-link px-3 text-white">나의 수강신청 조회</RouterLink>
           </li>
           <li>
@@ -74,7 +74,6 @@
           <template v-else>
             <RouterLink :to="{ name: 'login' }" class="btn btn-outline-light me-2">Login</RouterLink>
           </template>
-          <button type="button" class="btn btn-warning">Sign-up</button>
         </div>
       </div>
     </div>
