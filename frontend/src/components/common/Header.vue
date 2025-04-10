@@ -43,7 +43,10 @@
               강의 관리
             </RouterLink>
           </li>
-          <li v-if="authStore.memberInfo.role === 'ADMIN'">
+          <li v-if="authStore.memberInfo.role === 'ADMIN' && memberId">
+            <RouterLink :to="{ name: 'MyRegistration', params: { memberId } }" class="nav-link px-3 text-white">나의 수강신청 조회</RouterLink>
+          </li>
+          <li>
             <RouterLink :to="{ name: 'DurationOfRegistration' }" class="nav-link px-3 text-white">
               수강 신청 기간 관리
             </RouterLink>
@@ -71,7 +74,6 @@
           <template v-else>
             <RouterLink :to="{ name: 'login' }" class="btn btn-outline-light me-2">Login</RouterLink>
           </template>
-          <button type="button" class="btn btn-warning">Sign-up</button>
         </div>
       </div>
     </div>
@@ -104,6 +106,8 @@ import axios from '@/api/axios'
 import { useAuthStore } from '../../stores/auth'
 
 const authStore = useAuthStore()
+
+const memberId = localStorage.getItem('memberId')
 
 const handleLogout = () => {
   authStore.logout()

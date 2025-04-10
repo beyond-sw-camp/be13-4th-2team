@@ -14,6 +14,8 @@ export const useAuthStore = defineStore('auth', () => {
         role: ''
     });
 
+    const memberId = ref(null);
+
     // onMounted(() => {
     //     checkLogin(); 
     // });
@@ -24,15 +26,12 @@ export const useAuthStore = defineStore('auth', () => {
         try {
             const response = await apiClient.post('/members/login', loginData);
             console.log(response);
-            const memberId = response.data;
+            memberId.value = response.data;
 
-            console.log(memberId);
-            
-            
-            localStorage.setItem('memberId', response.data)
+            localStorage.setItem('memberId', memberId.value)
             if(response.status === 200) {
                 
-                const userNameResponse = await apiClient.get(`/members/my-info?memberId=${memberId}`);
+                const userNameResponse = await apiClient.get(`/members/my-info?memberId=${memberId.value}`);
 
                 localStorage.setItem('memberInfo', JSON.stringify({
                     email: userNameResponse.data.email,
