@@ -9,7 +9,6 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">수강 신청</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle px-2 text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               내 정보
@@ -46,7 +45,7 @@
           <li v-if="authStore.memberInfo.role === 'ADMIN' && memberId">
             <RouterLink :to="{ name: 'MyRegistration', params: { memberId } }" class="nav-link px-3 text-white">나의 수강신청 조회</RouterLink>
           </li>
-          <li>
+          <li v-if="authStore.memberInfo.role === 'ADMIN'">
             <RouterLink :to="{ name: 'DurationOfRegistration' }" class="nav-link px-3 text-white">
               수강 신청 기간 관리
             </RouterLink>
@@ -58,14 +57,14 @@
           </button>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
           <input
             type="search"
             class="form-control form-control-dark text-bg-dark"
             placeholder="Search..."
             aria-label="Search"
           />
-        </form>
+        </form> -->
 
         <div class="text-end">
           <template v-if="authStore.isLoggedIn">
