@@ -33,17 +33,17 @@
               학과 전체 조회
             </RouterLink>
           </li>
-          <li>
+          <li v-if="authStore.memberInfo.role === 'PROFESSOR'">
             <RouterLink :to="{ name: 'lecture-create' }" class="nav-link px-3 text-white">
               강의 생성
             </RouterLink>
           </li>
-          <li>
+          <li v-if="authStore.memberInfo.role === 'PROFESSOR'">
             <RouterLink :to="{ name: 'lecture-manage' }" class="nav-link px-3 text-white">
               강의 관리
             </RouterLink>
           </li>
-          <li>
+          <li v-if="authStore.memberInfo.role === 'ADMIN'">
             <RouterLink :to="{ name: 'DurationOfRegistration' }" class="nav-link px-3 text-white">
               수강 신청 기간 관리
             </RouterLink>
