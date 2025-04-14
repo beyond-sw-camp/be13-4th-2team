@@ -4,9 +4,9 @@
 
 
 # 1. 팀원 소개
-| 차경태 | 이창신 | 홍도현 | 임현조 | 이덕찬 | 
-|:------:|:------:|:------:|:------:|:------:|
-|  | [GitHub](https://github.com/dh0522) | [GitHub](https://github.com/limhyunjo) |  |  |
+|<img src="https://avatars.githubusercontent.com/" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/" width="150" height="150"/>|
+|:-:|:-:|:-:|:-:|:-:|
+|임현조<br/>[@limhyunjo](https://github.com/limhyunjo)|홍도현<br/>[@dh0522](https://github.com/dh0522)|이창신<br/>[@always0702](https://github.com/always0702)|차경태<br/>[@ChaGyoungtae](https://github.com/ChaGyoungtae)|이덕찬<br/>[@deokChan2](https://github.com/deokChan2)|
 
 
 
@@ -52,9 +52,29 @@
 
 ---
 
-# 3. 프로젝트 개요
+# 3. 프로젝트 소개
+ 
+* 관리자가 학생과 교수의 회원가입을 처리할 수 있습니다.
 
+* 교수는 강의를 개설할 수 있습니다.
+<br>
 
+* 학생은 원하는 강의를 수강신청할 수 있습니다.
+<br> 
+<br>
+<br>
+
+## 🌞 프로젝트 개요 및 기대효과
+
+### 개요
+학생과 교수의 수강 및 강의 관리를 웹 기반으로 제공하는 통합 학사 시스템입니다.  
+관리자가 사용자(학생/교수)를 등록하고 수강 신청 기간을 설정하며, 교수는 강의를 개설하고 학생은 해당 강의를 수강할 수 있습니다. 
+
+<br>
+
+### 기대효과
+
+강의 개설부터 수강신청까지 전 과정을 자동화하여 행정업무 부담을 감소하고, 실시간 시간표 확인 및 중복 체크 기능을 통해 오류 없는 수강신청이 가능하며 관리자, 교수, 학생 간의 권한을 구분하여 역할 기반 시스템으로 운영이 가능합니다.
 
 ---
 
