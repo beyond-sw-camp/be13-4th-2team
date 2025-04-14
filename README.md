@@ -38,14 +38,20 @@
 <div>
   <img src="https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white">
   <img src="https://img.shields.io/badge/jenkins-%23d24939.svg?style=for-the-badge&logo=jenkins&logoColor=white">
-  <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">   
+  <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white"> 
+  <img src="https://img.shields.io/badge/kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white">
+  <img src="https://img.shields.io/badge/argoCD-2D72D2?style=for-the-badge&logo=argo&logoColor=white">
+  <img src="https://img.shields.io/badge/ngrok-1F1F1F?style=for-the-badge&logo=ngrok&logoColor=white">
 </div>
+
 
 
 ### Tools
 <div>
   <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
-  <img src="https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white" alt="GitHub">  
+  <img src="https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white" alt="GitHub">
+  <img src="https://img.shields.io/badge/webhook-000000?style=for-the-badge&logo=github&logoColor=white" alt="Webhook">
+  <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge" alt="Axios">
 </div>
 
 
