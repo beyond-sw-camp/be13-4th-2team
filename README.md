@@ -232,7 +232,56 @@
       <img src="https://github.com/user-attachments/assets/e4502772-4e60-4197-9dcd-7127a92e7a8c" alt="Image">
     </details> 
   </details>
+  
+<details>
+ <summary>학과</summary>
+ <details>
+   <summary>전체 학과 조회</summary>
+     <img src="https://github.com/user-attachments/assets/1c3b40f5-69cb-46b9-a9a3-8109089b68ae"/>
+     <img src="https://github.com/user-attachments/assets/29a624c7-01b5-4198-bd51-753cf6392384"/>
+ </details>
+</details>
 
+<details>
+ <summary>수강신청 기간</summary>
+ <details>
+   <summary>수강신청 기간 설정</summary>
+     <img src="https://github.com/user-attachments/assets/e8842a0b-3009-4508-899a-77ec01e253f6"/>
+     <img src="https://github.com/user-attachments/assets/e80452ff-7abb-4238-b3f1-1bd07a6c93f2"/>
+     <img src="https://github.com/user-attachments/assets/434705a5-76e8-4fd0-ae85-232939ae47fb"/>
+ </details>
+ <details>
+   <summary>수강신청 기간 조회</summary>
+     <img src="https://github.com/user-attachments/assets/4f23141b-f986-41a1-b962-02e620dabed2"/>
+     <img src="https://github.com/user-attachments/assets/b210ce8a-1550-4663-bfd7-45bb8ac0839f"/>
+ </details>
+ <details>
+   <summary>수강신청 기간 삭제</summary>
+     <img src="https://github.com/user-attachments/assets/b8966357-5ede-423a-a93d-5340ed2ec397"/>
+     <img src="https://github.com/user-attachments/assets/1703650b-bc56-4eb7-8a2a-aa930bb02747"/>
+     <img src="https://github.com/user-attachments/assets/75d3f4c8-8653-4045-93b7-0b9cc71a7395"/>
+ </details> 
+</details>
+
+<details>
+ <summary>수강신청</summary>
+ <details>
+   <summary>전체 수강 내역 조회</summary>
+     <img src="https://github.com/user-attachments/assets/ecdf9bff-05b8-40dc-aaa5-a4bf5bd34488"/>
+     <img src="https://github.com/user-attachments/assets/81a63fac-a9b1-4665-8608-f2944ca9aa86"/>
+ </details>
+ <details>
+   <summary>특정 회원 수강 신청 내역 조회</summary>
+     <img src="https://github.com/user-attachments/assets/b48a5b0f-0554-484d-8eeb-94f7e738a336"/>
+     <img src="https://github.com/user-attachments/assets/41cb5342-8f05-4347-a814-b1cd7215665b"/>
+     <img src="https://github.com/user-attachments/assets/57d63cf7-6288-4bbe-975e-11a00b41861f"/>
+ </details>
+ <details>
+   <summary>수강 신청 취소</summary>
+     <img src="https://github.com/user-attachments/assets/eb8f08a4-5e7b-418b-be08-ab3607aebfb4"/>
+     <img src="https://github.com/user-attachments/assets/a727d382-10b3-4f1e-856c-f626db877056"/>
+ </details> 
+</details>
 
   
 </details>
