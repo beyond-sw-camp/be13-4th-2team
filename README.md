@@ -6,7 +6,7 @@
 # 1. 팀원 소개
 | 차경태 | 이창신 | 홍도현 | 임현조 | 이덕찬 | 
 |:------:|:------:|:------:|:------:|:------:|
-|  | [GitHub](https://github.com/dh0522) | [GitHub](https://github.com/limhyunjo) |  |  |
+|  | [GitHub](https://github.com/always0702) | [GitHub](https://github.com/dh0522) | [GitHub](https://github.com/limhyunjo) |  |  
 
 
 
@@ -151,7 +151,88 @@
 
 ---
 
-# 5. Frontend
+# 5. Frontend - 페이지별 구성
+
+<details>
+<summary> <b> 로그인 페이지</b> </summary>
+<div markdown="1">
+
+![로그인](https://github.com/user-attachments/assets/13cae104-ff47-4ed5-9b34-f36dcddd4787)
+
+</div>
+</details>
+
+<details>
+<summary> <b> 관리자 홈 페이지</b> </summary>
+<div markdown="1">
+
+![관리자 홈](https://github.com/user-attachments/assets/1b9dd08c-5e57-4201-93a1-e49e10665958)
+
+</div>
+</details>
+
+<details>
+<summary> <b> 관리자 페이지 </b> </summary>
+<div markdown="1">
+
+![관리자 페이지](https://github.com/user-attachments/assets/aeecb344-b4a6-44f1-931a-93b6028bb426)
+
+</div>
+</details>
+
+<details>
+<summary> <b> 개인 홈 페이지</b> </summary>
+<div markdown="1">
+
+![개인 홈](https://github.com/user-attachments/assets/d3564668-5777-4f97-b586-53d18921fe3f)
+
+</div>
+</details>
+
+<details>
+<summary> <b> 내 정보 페이지 </b> </summary>
+<div markdown="1">
+
+![내 정보 페이지](https://github.com/user-attachments/assets/b56923f8-e3b5-4bda-b2bd-63e94896b1ca)
+
+</div>
+</details>
+
+<details>
+<summary> <b> 나의 수강신청 페이지 </b> </summary>
+<div markdown="1">
+
+![나의 수강신청 페이지](https://github.com/user-attachments/assets/8f2eb6b4-f352-400a-b523-723eee571c66)
+
+</div>
+</details>
+
+<details>
+<summary> <b> 수강신청 페이지 </b> </summary>
+<div markdown="1">
+
+![수강신청 페이지](https://github.com/user-attachments/assets/9e081329-f1c2-4dc2-be8e-db6cfdd9533d)
+
+</div>
+</details>
+
+<details>
+<summary> <b> 수강신청 기간 확인 페이지</b> </summary>
+<div markdown="1">
+
+![수강신청 기간 확인](https://github.com/user-attachments/assets/7c2b1f78-c1c8-4ef0-9a3a-42d145cbc295)
+
+</div>
+</details>
+
+<details>
+<summary> <b> 학과 전체 조회 페이지</b> </summary>
+<div markdown="1">
+
+![학과 전체 조회 페이지](https://github.com/user-attachments/assets/a8c536e8-9dbc-4a5b-acbc-bc9ad0299f31)
+
+</div>
+</details>
 
 ---
 
