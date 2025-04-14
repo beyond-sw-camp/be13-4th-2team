@@ -145,9 +145,78 @@
 </details>
 
 <details>
-<summary> 세부 기능 테스트 </summary>
+  <summary>세부 기능 테스트</summary>
 
+  <details>
+    <summary>멤버</summary>
+    <details>
+      <summary>로그인</summary> 
+      <img src="https://github.com/user-attachments/assets/6db169b0-6a46-4f19-9fbd-915504e40c11" alt="Image">
+      <img src="https://github.com/user-attachments/assets/afbdbee9-056c-4713-834f-9920b352828d" alt="Image">
+      <img src="https://github.com/user-attachments/assets/ca2382cf-f059-4b7e-aac9-101c4a551858" alt="Image">
+    </details> 
+
+  <details>
+      <summary>전체 회원 조회</summary> 
+      <img src="https://github.com/user-attachments/assets/1ad8c43e-f063-4d93-87fe-689bd15f1e22" alt="Image">
+      <img src="https://github.com/user-attachments/assets/96ceccd5-f190-42aa-a97e-b4e70cbd1c55" alt="Image">
+  </details> 
+  
+  <details>
+      <summary>내 정보 보기</summary> 
+      <img src="https://github.com/user-attachments/assets/eb648e2b-4bd5-4999-8de3-b2c5f2e19728" alt="Image">
+      <img src="https://github.com/user-attachments/assets/28b2330b-13ee-4b0a-a6a0-f5c836335b2d" alt="Image">
+  </details> 
+  </details>
+
+  <details>
+    <summary>강의</summary>
+    <details>
+      <summary>강의 등록</summary> 
+      <img src="https://github.com/user-attachments/assets/8395cea0-6141-4c48-a151-54daa46125be" alt="Image">
+      <img src="https://github.com/user-attachments/assets/adb252a3-6305-4767-b891-502d95d16378" alt="Image">
+      <img src="https://github.com/user-attachments/assets/7754e4f5-3049-4485-ab1a-652616fdb205" alt="Image">
+    </details> 
+    <details>
+      <summary>강의 수정</summary> 
+      <img src="https://github.com/user-attachments/assets/7d45718b-373b-472d-81b7-9ad79cb624be" alt="Image">
+      <img src="https://github.com/user-attachments/assets/84f98cf1-9d54-455b-993c-f245a14a8f77" alt="Image">
+      <img src="https://github.com/user-attachments/assets/8188b5bc-07c4-4db1-a554-cebce6fa9a38" alt="Image">
+    </details> 
+    <details>
+      <summary>강의 삭제</summary> 
+      <img src="https://github.com/user-attachments/assets/df6b2cfc-0d9f-44f7-8e95-e79db70d6c9e" alt="Image">
+      <img src="https://github.com/user-attachments/assets/d8fa89bb-5b4c-40a4-a2be-792a543a323d" alt="Image">
+    </details> 
+    <details>
+      <summary>강의 단건 조회</summary> 
+      <img src="https://github.com/user-attachments/assets/51ac3838-cb53-4480-9059-4fc3e167f9b0" alt="Image">
+      <img src="https://github.com/user-attachments/assets/8d13dad7-6692-4c59-9125-46f117633bed" alt="Image">
+      <img src="https://github.com/user-attachments/assets/c8242082-4d51-4249-b22e-3c59eac92068" alt="Image">
+    </details> 
+    <details>
+      <summary>강의 조회 및 검색</summary> 
+      <img src="https://github.com/user-attachments/assets/3229e942-6c34-4058-8a09-f56d4bd34dc5" alt="Image">
+      <img src="https://github.com/user-attachments/assets/30bd9007-ae25-4c7e-922f-e3b8a828d0ef" alt="Image">
+    </details> 
+    <details> 
+      <summary>내가 만든 강의 조회</summary> 
+      <img src="https://github.com/user-attachments/assets/2b5e0f88-12e4-4a07-91f9-ec644ba43146" alt="Image">
+      <img src="https://github.com/user-attachments/assets/e1fe59b5-4afc-490e-9656-0e23e56e6eb2" alt="Image">
+      <img src="https://github.com/user-attachments/assets/db6799c0-185f-4bf2-b52f-a5151582f2be" alt="Image">
+    </details> 
+    <details> 
+      <summary>수강 신청</summary> 
+      <img src="https://github.com/user-attachments/assets/4f47cb38-83bb-4161-be46-c2bd8d1ceff2" alt="Image">
+      <img src="https://github.com/user-attachments/assets/3d3b88db-1dcf-4604-93d9-ea5e99e00cf8" alt="Image">
+      <img src="https://github.com/user-attachments/assets/e4502772-4e60-4197-9dcd-7127a92e7a8c" alt="Image">
+    </details> 
+  </details>
+
+
+  
 </details>
+
 
 ---
 
