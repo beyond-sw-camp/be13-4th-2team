@@ -408,7 +408,7 @@ system
 
 
 # 7. 시스템 아키텍쳐
-<img src="https://github.com/user-attachments/assets/0c536d48-d9c7-4fe6-a599-3de1d8e4d311" width="1200"/> <br>
+<img src="https://github.com/user-attachments/assets/8e0dc36b-e867-4ad3-8500-50dd97dd3b8f" width="1500"/> <br>
 # 8. WBS
 <img src="https://github.com/user-attachments/assets/75591cfe-bd75-40eb-ab11-6e3663922de4" width="1200"/> <br>
 # 9. 회고록
