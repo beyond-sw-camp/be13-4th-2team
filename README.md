@@ -4,10 +4,9 @@
 
 
 # 1. 팀원 소개
-|<img src="https://avatars.githubusercontent.com/" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/" width="150" height="150"/>|
+|<img src="https://github.com/user-attachments/assets/01fafecf-fdea-4b09-ab75-12856be7f519/" width="150" height="150"/>|<img src="https://github.com/user-attachments/assets/44f8dd08-3a57-4278-a138-35b6eafb0052/" width="150" height="150"/>|<img src="https://github.com/user-attachments/assets/b6441602-270f-4b6d-994a-5f190ca565ca/" width="150" height="150"/>|<img src="https://github.com/user-attachments/assets/58a408d8-2f8b-4325-8d66-6ac9bea6dc9f/" width="150" height="150"/>|<img src="https://github.com/user-attachments/assets/a20a2684-e4c2-4bb7-8f24-9f76644bdf3c" width="150" height="150"/>|
 |:-:|:-:|:-:|:-:|:-:|
 |임현조<br/>[@limhyunjo](https://github.com/limhyunjo)|홍도현<br/>[@dh0522](https://github.com/dh0522)|이창신<br/>[@always0702](https://github.com/always0702)|차경태<br/>[@ChaGyoungtae](https://github.com/ChaGyoungtae)|이덕찬<br/>[@deokChan2](https://github.com/deokChan2)|
-
 
 
 --- 
@@ -17,7 +16,7 @@
 ### BackEnd
 <div>
   <img src="https://img.shields.io/badge/Java-%23ED8B00?style=for-the-badge&logo=openjdk&logoColor=white">
-  <img src="https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT"> <br>
+  <br>
   
   <img src="https://img.shields.io/badge/Spring%20Boot-%236DB33F?style=for-the-badge&logo=springboot&logoColor=white">
   <img src="https://img.shields.io/badge/Spring%20Data%20JPA-%236DB33F?style=for-the-badge&logo=spring&logoColor=white">
@@ -53,11 +52,16 @@
 ---
 
 # 3. 프로젝트 소개
+BUCAMS : beyond
+university
+course
+applyment
+manegement
+system
  
 * 관리자가 학생과 교수의 회원가입을 처리할 수 있습니다.
 
 * 교수는 강의를 개설할 수 있습니다.
-<br>
 
 * 학생은 원하는 강의를 수강신청할 수 있습니다.
 <br> 
