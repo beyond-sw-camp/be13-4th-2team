@@ -11,7 +11,7 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle px-2 text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              내 정보
+              내 정보 조회
             </a>
             <ul class="dropdown-menu">
               <li>
@@ -26,6 +26,9 @@
             <RouterLink :to=" { name: 'lecture-list' }" class="nav-link px-3 text-white">
               수강 신청
             </RouterLink>
+          </li>
+          <li v-if="authStore.memberInfo.role === 'STUDENT' && memberId">
+            <RouterLink :to="{ name: 'MyRegistration', params: { memberId } }" class="nav-link px-3 text-white">나의 수강신청 조회</RouterLink>
           </li>
           <li>
             <RouterLink :to="{ name: 'departments' }" class="nav-link px-3 text-white">
@@ -42,9 +45,7 @@
               강의 관리
             </RouterLink>
           </li>
-          <li v-if="authStore.memberInfo.role === 'ADMIN' && memberId">
-            <RouterLink :to="{ name: 'MyRegistration', params: { memberId } }" class="nav-link px-3 text-white">나의 수강신청 조회</RouterLink>
-          </li>
+
           <li v-if="authStore.memberInfo.role === 'ADMIN'">
             <RouterLink :to="{ name: 'DurationOfRegistration' }" class="nav-link px-3 text-white">
               수강 신청 기간 관리

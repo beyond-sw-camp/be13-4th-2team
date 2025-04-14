@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:8080/api/v1',
-  timeout: 1000,
+  baseURL: 'http://gyoungtae.iptime.org:31000/api/v1',
+  // baseURL: 'https://bucams-api.com:30804/api/v1',
+  // baseURL: 'http://localhost:8080/api/v1',
+  timeout: 2000,
 });
 
 apiClient.interceptors.request.use(
