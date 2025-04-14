@@ -1,23 +1,22 @@
-
 <template>
-  <div class="list-group">
-      <div class="list-group-item list-group-item-action d-flex gap-3 py-3" 
-          v-for="(registration, index) in registrations" :key="index">
-          <ul style="list-style-type: none; margin: 0; padding: 0;">
-              <li class="registration-item">
-                  <div class="registration-registeredAt">
-                      <strong>Registered At </strong> {{ registration.registeredAt }}
-                  </div>
-                  <div class="registration-lectureId">
-                      <strong>Lecture ID:</strong> {{ registration.lectureId }}
-                  </div>
-                  <div class="registration-memberId">
-                      <strong>Member ID:</strong> {{ registration.memberId }}
-                  </div>
-              </li>
-          </ul>
-      </div>
-  </div>
+    <div class="list-group">
+        <div class="list-group-item list-group-item-action d-flex gap-3 py-3" 
+            v-for="(registration, index) in registrations" :key="index">
+            <ul style="list-style-type: none; margin: 0; padding: 0;">
+                <li class="registration-item">
+                    <div class="registration-registeredAt">
+                        <strong>신청날짜 </strong> {{ registration.registeredAt }}<br>
+                        <strong>강의명:</strong> {{ registration.lectureName }}<br>
+                        <strong>교수명:</strong> {{ registration.professorName }}
+                    </div>
+
+                </li>
+            </ul>
+            <div class="button-container ms-auto">
+
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup>

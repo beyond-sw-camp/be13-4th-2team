@@ -1,5 +1,3 @@
-# be13-4th-SolitaryDevelopers-Bucams
-
 # BUCAMS 
 
 
@@ -385,9 +383,33 @@ system
 ---
 
 <br><br>
+# 6. CI/CD Flow
+
+## 1. 개발자가 코드를 수정하여 깃허브에 푸시한다.
+<img src="https://github.com/user-attachments/assets/1d83eb07-2cb1-4e4f-a618-48e0445da5c6" width="300"/>
+
+## 2. 깃허브와 웹 훅으로 연결된 젠킨스가 변경을 감지하여 젠킨스파일 내의 stage를 수행한다.
+2-1 프론트엔드와 백엔드 빌드<br>
+<img src="https://github.com/user-attachments/assets/f763be01-6b4b-434b-aa56-c5c2e4e21b62" width="600"/><br>
+2-2 각각을 도커 이미지로 만들어서 푸시<br>
+<img src="https://github.com/user-attachments/assets/f5e80e76-bc3b-45b2-8481-95e186223045" width="600"/><br>
+<img src="https://github.com/user-attachments/assets/74f26c14-4cae-43e6-94a4-6dcabaa1b63b" width="600"/><br>
+## 3. ArgoCD를 이용해 새로 생성한 이미지를 deployment에 적용
+<img src="https://github.com/user-attachments/assets/819f1e48-524c-4638-adbf-8b00b19a2557" width="600"/><br>
+<img src="https://github.com/user-attachments/assets/07b56b17-4c25-42e2-b9ac-909104c5b334" width="600"/><br>
+
+## 젠킨스 정상 작동 화면
+<img src="https://github.com/user-attachments/assets/68054e4b-9827-4207-aabd-66fe33fcbde4" width="600"/><br>
+## ArgoCD 정상 작동 화면
+<img src="https://github.com/user-attachments/assets/d1219d3b-4235-4eb0-89c1-0093dc10c5b4" width="1000"/><br>
+<img src="https://github.com/user-attachments/assets/102fc3ac-2672-4cc6-87f8-3bb364594f69" width="61000"/><br>
 
 
-# 6. 회고록
+# 7. 시스템 아키텍쳐
+<img src="https://github.com/user-attachments/assets/0c536d48-d9c7-4fe6-a599-3de1d8e4d311" width="1200"/> <br>
+# 8. WBS
+<img src="https://github.com/user-attachments/assets/75591cfe-bd75-40eb-ab11-6e3663922de4" width="1200"/> <br>
+# 9. 회고록
 
 |   조원 이름	|  회고  	|
 |---	|---	|
