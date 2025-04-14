@@ -50,6 +50,7 @@
   <img src="https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white" alt="GitHub">
   <img src="https://img.shields.io/badge/webhook-000000?style=for-the-badge&logo=github&logoColor=white" alt="Webhook">
   <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge" alt="Axios">
+  Helm, Chocolatey
 </div>
 
 
