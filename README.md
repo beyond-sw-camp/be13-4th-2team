@@ -1,5 +1,6 @@
 # BUCAMS 
-
+# 0. 발표자료
+[Bucams project.pdf](https://github.com/user-attachments/files/19731328/Bucams.project.pdf)
 
 # 1. 팀원 소개
 |<img src="https://github.com/user-attachments/assets/01fafecf-fdea-4b09-ab75-12856be7f519/" width="150" height="150"/>|<img src="https://github.com/user-attachments/assets/44f8dd08-3a57-4278-a138-35b6eafb0052/" width="150" height="150"/>|<img src="https://github.com/user-attachments/assets/b6441602-270f-4b6d-994a-5f190ca565ca/" width="150" height="150"/>|<img src="https://github.com/user-attachments/assets/58a408d8-2f8b-4325-8d66-6ac9bea6dc9f/" width="150" height="150"/>|<img src="https://github.com/user-attachments/assets/a20a2684-e4c2-4bb7-8f24-9f76644bdf3c" width="150" height="150"/>|
